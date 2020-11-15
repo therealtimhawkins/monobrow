@@ -17,7 +17,7 @@ const router = new Router(browser);
 ```
 - Each router should be passed the browser instance. An optional second argument `route` can be passed to the router `new Router(browser, '/base-route')`. This sets the base route of the router.
 ### receive()
-- `router.receive()` adds a route to the router. This does not need to return a response.
+- `router.receive(route, callback)` adds a route to the router. The callback is passed the `body` arguement passed through from `router.send()`. This does not need to return a response.
 ```
 router.receive("/example-path", (body) => {
   const message = body.message
