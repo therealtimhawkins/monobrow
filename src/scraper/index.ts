@@ -37,11 +37,11 @@ class Scraper {
     const list: any = this.get(listSelector)
     if (!list) return
     const parsedList: Array<Scraper.Elements> = []
-    list.forEach((listItem: Scraper.ListItem) => {
+    for (const listItem of list) {
       const html = listItem.innerHTML
       const data = this.getInnerHtmlData(html, elements)
       if (data) parsedList.push(data)
-    })
+    }
     return parsedList
   }
 }

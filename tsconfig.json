@@ -5,7 +5,7 @@
     "lib": ["es6", "dom"],
     "allowJs": true,
     "outDir": "build",
-    "rootDir": "./src",
+    "rootDir": "src",
     "strict": true,
     "moduleResolution": "node",
     "baseUrl": "./",
