@@ -1,5 +1,5 @@
 {
-  "name": "monobrow",
+  "name": "monobrowser",
   "version": "1.0.0",
   "description": "",
   "main": "build/index.js",
@@ -47,7 +47,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/therealtimhawkins/"
+    "url": "git+https://github.com/therealtimhawkins/monobrow"
   },
   "author": "Tim Hawkins",
   "license": "MIT"
