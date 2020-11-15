@@ -1,4 +1,4 @@
-<h1 align="center">monobrow {:-)</h1>
+<h1 align="center">monobrowser {:-)</h1>
 <p align="center">Promise-based browser extension helpers</p>
 
 ## Features
