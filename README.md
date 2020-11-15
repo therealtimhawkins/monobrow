@@ -1,4 +1,10 @@
 <h1 align="center">monobrow {:-)</h1>
+<p align="center">Promise-based browser extension helpers</p>
+
+## Features
+- Router - express style routing between browser extension scripts
+- Scraper - high level web scraping from within a browser extension
+- Content - inject and manipulate html content from a browser extension
 
 ## Install
 - `npm install monobrow`
