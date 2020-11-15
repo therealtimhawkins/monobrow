@@ -1,16 +1,6 @@
 import { Scraper } from './scraper.types'
+import isEmpty from 'lodash.isempty'
 
-  interface Elements {
-    [key: string]: string
-  }
-
-  interface Element {
-    innerText?: string
-  }
-
-  interface ListItem {
-    innerHTML: string
-  }
 class Scraper {
   document: Document
 
@@ -37,22 +27,23 @@ class Scraper {
     return this.document.getElementsByClassName(className)
   }
 
-  getInnerHtmlData(html: string, elements: Elements) {
+  getInnerHtmlData(html: string, elements: Scraper.Elements) {
     const dom = new DOMParser().parseFromString(html, 'text/html')
-    const response: Elements = {}
+    const response: Scraper.Elements = {}
     Object.keys(elements).forEach(key => {
       const element = dom.getElementsByClassName(elements[key])[0]
-      response[key] = (<HTMLElement>element).innerText
+      if (element) response[key] = (<HTMLElement>element).innerText
     })
-    return response
+    if (!isEmpty(response)) return response
+    else return
   }
 
-  getListData(list: Array<ListItem>, elements: Elements) {
-    const parsedList: Array<Elements> = []
+  getListData(list: Array<Scraper.ListItem>, elements: Scraper.Elements) {
+    const parsedList: Array<Scraper.Elements> = []
     list.forEach(listItem => {
       const html = listItem.innerHTML
       const data = this.getInnerHtmlData(html, elements)
-      parsedList.push(data)
+      if (data) parsedList.push(data)
     })
     return parsedList
   }

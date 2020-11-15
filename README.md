@@ -40,7 +40,7 @@ const response = await router.sendAll("/example-path", { message: "message paylo
 ```
 ### log()
 
-- The router has some built in logging functionality. To use this run `router.logInit()` in the background script. All logs from `router.log('logging message!') will be routed to the background script. This can accept strings or objects
+- The router has some built in logging functionality. To use this run `router.logInit()` in the background script. All logs from `router.log('logging message!')` will be routed to the background script. This can accept strings or objects
 ```
 router.log("Logging!");
 ```
