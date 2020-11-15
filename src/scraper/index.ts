@@ -10,21 +10,16 @@ class Scraper {
 
   get(element: Scraper.Element) {
     if (element.tag) return this.getByTag(element.tag)
-    if (element.id) return this.getById(element.id)
     if (element.className) return this.getByClass(element.className)
     return []
   }
 
   getByTag(tag: string) {
-    return this.document.getElementsByTagName(tag)
-  }
-
-  getById(id: string) {
-    return this.document.getElementById(id)
+    return this.document.getElementsByTagName(tag) || []
   }
 
   getByClass(className: string) {
-    return this.document.getElementsByClassName(className)
+    return this.document.getElementsByClassName(className) || []
   }
 
   getInnerHtmlData(html: string, elements: Scraper.Elements) {
@@ -38,9 +33,11 @@ class Scraper {
     else return
   }
 
-  getListData(list: Array<Scraper.ListItem>, elements: Scraper.Elements) {
+  getListData(listSelector: Scraper.Element , elements: Scraper.Elements) {
+    const list: any = this.get(listSelector)
+    if (!list) return
     const parsedList: Array<Scraper.Elements> = []
-    list.forEach(listItem => {
+    list.forEach((listItem: Scraper.ListItem) => {
       const html = listItem.innerHTML
       const data = this.getInnerHtmlData(html, elements)
       if (data) parsedList.push(data)

@@ -4,15 +4,14 @@
 ## Features
 - Router - express style routing between browser extension scripts
 - Scraper - high level web scraping from within a browser extension
-- Content - inject and manipulate html content from a browser extension
 
 ## Install
-- `npm install monobrow`
+- `npm install monobrowser`
 
 ## Router
-- The router is used to provide express style, promise based routing between the scripts of a browser extension. You can instansiate the router using:
+- The router is used to provide express style, promise based routing between the scripts of a browser extension. 
 ```
-import { Router } from "monobrow";
+import { Router } from "monobrowser";
 const router = new Router(browser);
 ```
 - Each router should be passed the browser instance. An optional second argument `route` can be passed to the router `new Router(browser, '/base-route')`. This sets the base route of the router.
@@ -46,6 +45,23 @@ router.log("Logging!");
 ```
 
 ## Scraper
+- The scraper is used to easily access and parse web page data. The scraper will only work in scripts which have access to the dom.
+```
+import { Scraper } from "monobrowser";
+const scraper = new Scraper(browser);
+```
+- Each router should be passed the document instance.
 
+### get()
+- `scraper.get(element)` returns an array of elements. className, tag or id can be used.
+```
+const response = scraper.get({tag: 'img'})
 
-## Content
+```
+
+### getListData()
+- `scraper.getListData(list, element)` returns an array of elements. className, tag or id can be used.
+```
+const response = scraper.get({tag: 'img'})
+
+```
